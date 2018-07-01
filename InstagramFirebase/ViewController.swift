@@ -113,7 +113,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
       print("Successfully created user:", user?.uid ?? "")
       /*
        *We need to call self before plusPhotoButton because we are inside of
-       *a completion block closure
+       *a completion closure
        */
       guard let image = self.plusPhotoButton.imageView?.image else { return }
       
