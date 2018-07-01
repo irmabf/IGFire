@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B742024420E7232E0073423D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B742024320E7232E0073423D /* Extensions.swift */; };
 		B771B2F620E6B7C400607F71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B771B2F520E6B7C400607F71 /* AppDelegate.swift */; };
 		B771B2F820E6B7C400607F71 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B771B2F720E6B7C400607F71 /* ViewController.swift */; };
 		B771B2FB20E6B7C400607F71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B771B2F920E6B7C400607F71 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B742024320E7232E0073423D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B771B2F220E6B7C400607F71 /* InstagramFirebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramFirebase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B771B2F520E6B7C400607F71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B771B2F720E6B7C400607F71 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +37,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B742024220E722F40073423D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B742024320E7232E0073423D /* Extensions.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		B771B2E920E6B7C400607F71 = {
 			isa = PBXGroup;
 			children = (
@@ -54,6 +64,7 @@
 		B771B2F420E6B7C400607F71 /* InstagramFirebase */ = {
 			isa = PBXGroup;
 			children = (
+				B742024220E722F40073423D /* Utils */,
 				B771B2F520E6B7C400607F71 /* AppDelegate.swift */,
 				B771B2F720E6B7C400607F71 /* ViewController.swift */,
 				B771B2F920E6B7C400607F71 /* Main.storyboard */,
@@ -136,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B771B2F820E6B7C400607F71 /* ViewController.swift in Sources */,
+				B742024420E7232E0073423D /* Extensions.swift in Sources */,
 				B771B2F620E6B7C400607F71 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
