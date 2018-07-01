@@ -12,10 +12,10 @@ class MainTabBarController: UITabBarController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    let redVC = UIViewController()
-    redVC.view.backgroundColor = .red
+    let layout = UICollectionViewFlowLayout()
+    let userProfileController = UserProfileController(collectionViewLayout: layout)
     
-    let navController = UINavigationController(rootViewController: redVC)
+    let navController = UINavigationController(rootViewController: userProfileController)
     
     viewControllers = [navController]
   }
