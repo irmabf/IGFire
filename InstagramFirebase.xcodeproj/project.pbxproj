@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B725419020EA7C8E00C33ABF /* UserProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725418F20EA7C8E00C33ABF /* UserProfileHeader.swift */; };
 		B742024420E7232E0073423D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B742024320E7232E0073423D /* Extensions.swift */; };
 		B771B2F620E6B7C400607F71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B771B2F520E6B7C400607F71 /* AppDelegate.swift */; };
 		B771B2F820E6B7C400607F71 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B771B2F720E6B7C400607F71 /* RegisterController.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		83210EA8ADA796F6F79C4979 /* Pods-InstagramFirebase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramFirebase.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramFirebase/Pods-InstagramFirebase.release.xcconfig"; sourceTree = "<group>"; };
+		B725418F20EA7C8E00C33ABF /* UserProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeader.swift; sourceTree = "<group>"; };
 		B742024320E7232E0073423D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B771B2F220E6B7C400607F71 /* InstagramFirebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramFirebase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B771B2F520E6B7C400607F71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +56,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B725418E20EA7C1A00C33ABF /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				B725418F20EA7C8E00C33ABF /* UserProfileHeader.swift */,
+			);
+			path = UserProfile;
+			sourceTree = "<group>";
+		};
 		B742024220E722F40073423D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +93,7 @@
 		B771B2F420E6B7C400607F71 /* InstagramFirebase */ = {
 			isa = PBXGroup;
 			children = (
+				B725418E20EA7C1A00C33ABF /* UserProfile */,
 				B742024220E722F40073423D /* Utils */,
 				B771B2F520E6B7C400607F71 /* AppDelegate.swift */,
 				B7EBEA6220E9485600D400C8 /* MainTabBarController.swift */,
@@ -226,6 +237,7 @@
 				B771B2F820E6B7C400607F71 /* RegisterController.swift in Sources */,
 				B742024420E7232E0073423D /* Extensions.swift in Sources */,
 				B7EBEA6320E9485600D400C8 /* MainTabBarController.swift in Sources */,
+				B725419020EA7C8E00C33ABF /* UserProfileHeader.swift in Sources */,
 				B7EBEA6520E94BD500D400C8 /* UserProfileController.swift in Sources */,
 				B771B2F620E6B7C400607F71 /* AppDelegate.swift in Sources */,
 			);
