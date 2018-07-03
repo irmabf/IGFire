@@ -27,7 +27,6 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
     collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
     
     setupLogOutButton()
-  
   }
   
   /***************************************************************************************************
@@ -45,6 +44,10 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
       do {
         try Auth.auth().signOut()
         //We need to present some kind of login controller
+        let loginController = LoginController()
+        let navController = UINavigationController(rootViewController: loginController)
+        self.present(navController, animated: true, completion: nil)
+        
       }catch let signOutErr {
         print("Failed to sign out:", signOutErr)
       }

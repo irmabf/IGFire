@@ -26,6 +26,11 @@ class MainTabBarController: UITabBarController {
       }
     }
     
+    setupViewControllers()
+  }
+  
+//  Custom Functions
+  func setupViewControllers() {
     let layout = UICollectionViewFlowLayout()
     let userProfileController = UserProfileController(collectionViewLayout: layout)
     
@@ -38,5 +43,5 @@ class MainTabBarController: UITabBarController {
     
     viewControllers = [navController, UIViewController()]
   }
-} 
+}
 
