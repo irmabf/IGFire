@@ -26,8 +26,38 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
     
     collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
     
+    setupLogOutButton()
+  
   }
   
+  /***************************************************************************************************
+   *Custom Functions
+   ****************************************************************************************************/
+  fileprivate func setupLogOutButton() {
+    navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "gear") .withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleLogOut))
+  }
+  
+  @objc func handleLogOut() {
+    let alertController = UIAlertController(title: nil, message:nil, preferredStyle: .actionSheet)
+    
+    alertController.addAction(UIAlertAction(title: "Log Out", style: .destructive, handler: { (_) in
+      
+      do {
+        try Auth.auth().signOut()
+        //We need to present some kind of login controller
+      }catch let signOutErr {
+        print("Failed to sign out:", signOutErr)
+      }
+      
+    }))
+    
+    alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+    
+    /*alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
+      print("Cancel")
+    }))*/
+    present(alertController, animated: true, completion: nil)
+  }
   /***************************************************************************************************
    *CollectionView cells
    ****************************************************************************************************/

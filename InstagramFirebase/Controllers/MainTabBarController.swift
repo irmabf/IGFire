@@ -7,10 +7,24 @@
 //
 
 import UIKit
+import Firebase
 
 class MainTabBarController: UITabBarController {
   override func viewDidLoad() {
     super.viewDidLoad()
+//    if the current user is not logged in
+    if Auth.auth().currentUser == nil {
+      /**
+       *When the application launches none or the views are set up yet and with
+       *DispatchQueue we can wait until they are
+       */
+      DispatchQueue.main.async {
+        let loginController = LoginController()
+        let navController = UINavigationController(rootViewController: loginController)
+        self.present(navController, animated: true, completion: nil)
+        return
+      }
+    }
     
     let layout = UICollectionViewFlowLayout()
     let userProfileController = UserProfileController(collectionViewLayout: layout)
