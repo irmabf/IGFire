@@ -18,13 +18,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Instagram_logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="veS-vZ-vLl">
-                                <rect key="frame" x="74" y="160" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Instagram_logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="veS-vZ-vLl">
+                                <rect key="frame" x="68" y="170" width="239" height="71"/>
                                 <color key="backgroundColor" red="0.074188344180583954" green="0.8357279896736145" blue="0.8292345404624939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="veS-vZ-vLl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="68" id="GCS-RS-8UB"/>
+                            <constraint firstItem="veS-vZ-vLl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="PgE-ls-ve3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="veS-vZ-vLl" secondAttribute="trailing" constant="68" id="zei-rC-Xvg"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
