@@ -87,8 +87,9 @@
 		B771B2F420E6B7C400607F71 /* InstagramFirebase */ = {
 			isa = PBXGroup;
 			children = (
-				B7EE66EA20EBBB9F002A3D21 /* Views */,
-				B7EE66E920EBAB6F002A3D21 /* Controllers */,
+				B7EE66EA20EBBB9F002A3D21 /* Login */,
+				B7EE66E920EBAB6F002A3D21 /* UserProfile */,
+				B7EBEA6220E9485600D400C8 /* MainTabBarController.swift */,
 				B742024220E722F40073423D /* Utils */,
 				B771B2F520E6B7C400607F71 /* AppDelegate.swift */,
 				B771B2FC20E6B7C500607F71 /* Assets.xcassets */,
@@ -99,23 +100,22 @@
 			path = InstagramFirebase;
 			sourceTree = "<group>";
 		};
-		B7EE66E920EBAB6F002A3D21 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				B7EBEA6220E9485600D400C8 /* MainTabBarController.swift */,
-				B7EBEA6420E94BD500D400C8 /* UserProfileController.swift */,
-				B771B2F720E6B7C400607F71 /* SignUpController.swift */,
-				B7EE66EB20EBBC19002A3D21 /* LoginController.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		B7EE66EA20EBBB9F002A3D21 /* Views */ = {
+		B7EE66E920EBAB6F002A3D21 /* UserProfile */ = {
 			isa = PBXGroup;
 			children = (
 				B725418F20EA7C8E00C33ABF /* UserProfileHeader.swift */,
+				B7EBEA6420E94BD500D400C8 /* UserProfileController.swift */,
 			);
-			path = Views;
+			path = UserProfile;
+			sourceTree = "<group>";
+		};
+		B7EE66EA20EBBB9F002A3D21 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B771B2F720E6B7C400607F71 /* SignUpController.swift */,
+				B7EE66EB20EBBC19002A3D21 /* LoginController.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		CF47D621058630A72195BD4E /* Pods */ = {
