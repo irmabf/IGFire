@@ -65,6 +65,9 @@ class PhotoSelectorController: UICollectionViewController, UICollectionViewDeleg
     self.selectedImage = images[indexPath.item]
 //    I need to reload data in the collection view to rerender the header
     self.collectionView?.reloadData()
+//    Scroll up to the header after the selection of a picture
+    let indexPath = IndexPath(item: 0, section: 0)
+    collectionView.scrollToItem(at: indexPath, at: .bottom, animated: true)
   }
   
   
@@ -115,10 +118,13 @@ class PhotoSelectorController: UICollectionViewController, UICollectionViewDeleg
     }
   }
   
+  var header: PhotoSelectorHeader?
   
   override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String,
                                at indexPath: IndexPath) -> UICollectionReusableView {
     let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! PhotoSelectorHeader
+    
+    self.header = header
     
     header.photoImageView.image = selectedImage
     
@@ -181,7 +187,11 @@ class PhotoSelectorController: UICollectionViewController, UICollectionViewDeleg
   }
   
   @objc func handleNext() {
-    print("handle next")
+//   Push on to the NavigationController stack another controller
+    let sharePhotoController = SharePhotoController()
+    sharePhotoController.selectedImage = header?.photoImageView.image
+    navigationController?.pushViewController(sharePhotoController, animated: true)
+    
   }
   
   @objc func handleCancel() {
