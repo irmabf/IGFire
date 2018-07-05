@@ -48,7 +48,7 @@ class SharePhotoController: UIViewController {
     
     view.addSubview(containerView)
     let guide = view.safeAreaLayoutGuide
-    containerView.anchor(top: guide.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 8, paddingLeft: 8, paddingBottom: 8, paddingRight: 0, width: 84, height: 300)
+    containerView.anchor(top: guide.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 8, paddingLeft: 8, paddingBottom: 8, paddingRight: 0, width: 84, height: 100)
     
     containerView.addSubview(imageView)
     imageView.anchor(top: containerView.topAnchor, left: containerView.leftAnchor, bottom: containerView.bottomAnchor, right: nil,
