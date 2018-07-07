@@ -58,49 +58,6 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
   }
   
   
-  
-  fileprivate func fetchPosts() {
-    guard let uid =  Auth.auth().currentUser?.uid  else { return }
-    
-    let ref = Database.database().reference().child("posts").child(uid)
-    
-    ref.observeSingleEvent(of: .value, with: { (snapshot) in
-//      print(snapshot.value)
-//      Firebase gives as a dictiomnary, snapshot
-//      We bind this snapshot.value into a dictionaries
-      guard let dictionaries = snapshot.value as? [String: Any] else { return }
-//      Now we can access dictionaries key values with a foreach
-//      Foreach iterates to each dictionary and its key and gives as the key and the value
-      dictionaries.forEach({ (key, value) in
-//        print("Key \(key), Value: \(value)")
-        /*
-         **
-         *Now that we have keys and values at our disposal, we can use value to get
-         the imageUrl out.
-         */
-        
-        guard let dictionary = value as? [String: Any] else { return }
-        
-//        let imageUrl =  dictionary["imageUrl"] as? String
-        
-//        print("ImageUrl: \(imageUrl)")
-        
-        let post = Post(dictionary: dictionary)
-        
-//        print(post.imageUrl)
-        
-        self.posts.append(post)
-        
-      })
-      
-      self.collectionView?.reloadData()
-      
-    }) { (err) in
-      print("Failed to fetch posts:", err)
-    }
-    
-  }
-  
   fileprivate func setupLogOutButton() {
     navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "gear") .withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleLogOut))
   }
