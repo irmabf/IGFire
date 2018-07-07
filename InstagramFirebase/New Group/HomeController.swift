@@ -12,82 +12,81 @@ import Firebase
 class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
   
   let cellId = "cellId"
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     collectionView?.backgroundColor = .white
     
-//1.    Register ne cell for collection view
     collectionView?.register(HomePostCell.self, forCellWithReuseIdentifier: cellId)
     
     setupNavigationItems()
     
     fetchPosts()
   }
-//2.  Override numberOfItemsInSection to return the number of cells
-  override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return posts.count
+  
+  var posts = [Post]()
+  fileprivate func fetchPosts() {
+    guard let uid = Auth.auth().currentUser?.uid else { return }
+    
+    Database.database().reference().child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
+      
+      guard let userDictionary = snapshot.value as? [String: Any] else { return }
+      
+      let user = User(dictionary: userDictionary)
+      
+      let ref = Database.database().reference().child("posts").child(uid)
+      ref.observeSingleEvent(of: .value, with: { (snapshot) in
+        guard let dictionaries = snapshot.value as? [String: Any] else { return }
+        
+        dictionaries.forEach({ (key, value) in
+          guard let dictionary = value as? [String: Any] else { return }
+          
+          let post = Post(user: user, dictionary: dictionary)
+          
+          self.posts.append(post)
+        })
+        
+        self.collectionView?.reloadData()
+        
+      }) { (err) in
+        print("Failed to fetch posts:", err)
+      }
+      
+      
+    }) { (err) in
+      print("Failed to fetch user for posts:", err)
+    }
+    
+    
+    
   }
-//3  Override cellForItemAt to return a dequereusable cell
-  override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! HomePostCell
-    cell.post = posts[indexPath.item]
-    return cell
+  
+  func setupNavigationItems() {
+    navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "logo2"))
   }
-//  4. Conform to protocol UICollectionViewDelegateViewFlowLayout and implement sizeForItemAt
+  
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    var height: CGFloat = 40 + 8 + 8
+    
+    var height: CGFloat = 40 + 8 + 8 //username userprofileimageview
     height += view.frame.width
     height += 50
     height += 60
+    
     return CGSize(width: view.frame.width, height: height)
   }
   
-  fileprivate func setupNavigationItems() {
-    navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "logo2") )
+  override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return posts.count
   }
   
-  var posts = [Post]()
-  
-  fileprivate func fetchPosts() {
-    guard let uid =  Auth.auth().currentUser?.uid  else { return }
+  override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     
-    let ref = Database.database().reference().child("posts").child(uid)
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! HomePostCell
     
-    ref.observeSingleEvent(of: .value, with: { (snapshot) in
-      //      print(snapshot.value)
-      //      Firebase gives as a dictiomnary, snapshot
-      //      We bind this snapshot.value into a dictionaries
-      guard let dictionaries = snapshot.value as? [String: Any] else { return }
-      //      Now we can access dictionaries key values with a foreach
-      //      Foreach iterates to each dictionary and its key and gives as the key and the value
-      dictionaries.forEach({ (key, value) in
-        //        print("Key \(key), Value: \(value)")
-        /*
-         **
-         *Now that we have keys and values at our disposal, we can use value to get
-         the imageUrl out.
-         */
-        
-        guard let dictionary = value as? [String: Any] else { return }
-        
-        //        let imageUrl =  dictionary["imageUrl"] as? String
-        
-        //        print("ImageUrl: \(imageUrl)")
-        
-        let post = Post(dictionary: dictionary)
-        
-        //        print(post.imageUrl)
-        
-        self.posts.append(post)
-        
-      })
-      
-      self.collectionView?.reloadData()
-      
-    }) { (err) in
-      print("Failed to fetch posts:", err)
-    }
+    cell.post = posts[indexPath.item]
     
+    return cell
   }
+  
+}
 
-  }
