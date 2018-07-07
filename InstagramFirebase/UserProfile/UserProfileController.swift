@@ -51,7 +51,8 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
       guard let user = self.user  else  { return }
      
       let post = Post(user: user, dictionary: dictionary)
-      self.posts.append(post)
+      self.posts.insert(post, at: 0)
+//      self.posts.append(post)
       
       self.collectionView?.reloadData()
       
@@ -164,15 +165,7 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
   }
 }
 
-struct User {
-  let username: String
-  let profileImageUrl: String
-  
-  init(dictionary: [String: Any]) {
-    username = dictionary["username"] as? String ?? ""
-    profileImageUrl = dictionary["profileImageUrl"] as? String ?? ""
-  }
-}
+
 
 
 
