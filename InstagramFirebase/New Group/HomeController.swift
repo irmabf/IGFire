@@ -35,7 +35,11 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
   }
 //  4. Conform to protocol UICollectionViewDelegateViewFlowLayout and implement sizeForItemAt
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return CGSize(width: view.frame.width, height: 200)
+    var height: CGFloat = 40 + 8 + 8
+    height += view.frame.width
+    height += 50
+    height += 120
+    return CGSize(width: view.frame.width, height: height)
   }
   
   fileprivate func setupNavigationItems() {
